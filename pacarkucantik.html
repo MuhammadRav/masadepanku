@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love uuuu</title>
+    <style>
+        body {
+            background-image: url('bg.avif');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Menambahkan font alternatif */
+        }
+        .card {
+            border: 10px solid #fff;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            width: 500px;
+            background-color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            opacity: 0;
+            transform: translateX(-100%) rotateY(-90deg);
+            transition: transform 1s ease, opacity 1s ease;
+            animation: shake 0.5s ease infinite;
+        }
+        .card::before, .card::after {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -80px;
+            bottom: -30px;
+            left: -80px;
+            background: url('ab.jpg') no-repeat;
+            background-size: cover;
+            border-radius: 15px;
+            z-index: -1;
+        }
+        .card-image {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            border: 5px solid #fff;
+            border-radius: 50%;
+            overflow: hidden;
+            animation: slide-in 1s ease forwards;
+        }
+        .card-image img {
+            width: 100%;
+            height: 100%;
+        }
+        body.loaded .card {
+            transform: translateX(0%) rotateY(0deg);
+            opacity: 1;
+            animation: none;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #fff;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Menambahkan font alternatif */
+        }
+        body.fade-out .card {
+            transform: translateX(100%) rotateY(90deg);
+            opacity: 0;
+        }
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        .audio-wrapper {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%; /* Adjust the width as needed */
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+            animation: fade-in 1s ease forwards;
+        }
+        .audio-text {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Menambahkan font alternatif */
+            font-size: 18px; /* Menyesuaikan ukuran font */
+            font-weight: bold; /* Membuat teks menjadi lebih tebal */
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        audio {
+            width: 100%;
+            transition: opacity 1s ease;
+            opacity: 0;
+        }
+        .audio-frame {
+            border: 5px solid #fff;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: opacity 1s ease;
+            opacity: 0;
+        }
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .exit-animation {
+            animation: fade-out 1s ease forwards;
+        }
+        @keyframes fade-out {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        @keyframes slide-in {
+            from {
+                top: -100px;
+                opacity: 0;
+            }
+            to {
+                top: -50px;
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            setTimeout(() => {
+                document.querySelector('.audio-wrapper').style.opacity = 1;
+                document.querySelector('.audio-text').style.opacity = 1;
+                document.querySelector('.audio-frame').style.opacity = 1;
+                document.querySelector('audio').style.opacity = 1;
+            }, 1000);
+        });
+        function goToNextPage(url) {
+            document.body.classList.add('fade-out');
+            document.querySelector('.audio-wrapper').classList.add('exit-animation');
+            document.querySelector('.audio-text').classList.add('exit-animation');
+            document.querySelector('.audio-frame').classList.add('exit-animation');
+            document.querySelector('audio').classList.add('exit-animation');
+            setTimeout(() => {
+                window.location.href = url;
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+    <div class="card">
+        <div class="card-image">
+            <img src="ayangg.jpg" alt="Image">
+        </div>
+        <h1>Mengenai Cintaku</h1>
+        <p>Meski akhirnya engkau lahir sebagai pergi yang takkan pernah pulang, ketahuilah; rasaku akan seterusnya ada dan takkan per</p>
+        <button onclick="goToNextPage('index.html')">Pilih ini kalo mau baca dari awal mwehhee</button>
+    </div>
+    <div class="audio-wrapper">
+        <div class="audio-text">Pencet dibawah ini Sayang🥰</div>
+        <div class="audio-frame">
+            <audio controls>
+                <source src="itsme.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+</body>
+</html>

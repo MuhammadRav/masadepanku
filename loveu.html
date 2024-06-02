@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantik Banget</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('bg.avif');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Raleway', sans-serif; /* Menggunakan font Raleway */
+        }
+        .card {
+            border: 10px solid #fff;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            width: 500px;
+            background-color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            opacity: 0;
+            transform: scale(0.5) rotateZ(180deg);
+            transition: transform 1s ease, opacity 1s ease;
+            animation: shake 0.5s ease infinite;
+        }
+        .card::before, .card::after {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -80px;
+            bottom: -30px;
+            left: -80px;
+            background: url('ab.jpg') no-repeat;
+            background-size: cover;
+            border-radius: 15px;
+            z-index: -1;
+        }
+        body.loaded .card {
+            transform: scale(1) rotateZ(0deg);
+            opacity: 1;
+            animation: none;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #fff;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        body.fade-out .card {
+            transform: scale(0.5) rotateZ(180deg);
+            opacity: 0;
+        }
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+    </style>
+    <script>
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+        function goToNextPage(url) {
+            document.body.classList.add('fade-out');
+            setTimeout(function() {
+                window.location.href = url;
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+    <div class="card">
+        <h1>Tau Ga??</h1>
+        <p>Dari sekian banyaknya mimpi-mimpi random aku. Menjalani hidup bersamamu adalah mimpiku yang paling ingin kucapai.</p>
+        <p>💕💕💕❤️❤️❤️💕💕💕</p>
+        <button onclick="goToNextPage('aaaaloveuu.html')">Lanjut</button>
+    </div>
+</body>
+</html>
